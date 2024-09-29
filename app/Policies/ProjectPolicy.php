@@ -18,7 +18,10 @@ class ProjectPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->is_admin || $user->role == 'writer') {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project)
     {
-        //
+        if ($user->is_admin || $user->role == 'writer') {
+            return true;
+        }
+        return false;
     }
 
     /**

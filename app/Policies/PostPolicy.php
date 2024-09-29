@@ -32,7 +32,10 @@ class PostPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->is_admin || $user->role == 'writer') {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -44,7 +47,10 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        //
+        if ($user->is_admin || $user->role == 'writer') {
+            return true;
+        }
+        return false;
     }
 
     /**

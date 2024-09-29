@@ -18,7 +18,10 @@ class ProductPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if ($user->is_admin || $user->role == 'lister') {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class ProductPolicy
      */
     public function view(User $user, Product $product)
     {
-        //
+        if ($user->is_admin || $user->role == 'lister') {
+            return true;
+        }
+        return false;
     }
 
     /**

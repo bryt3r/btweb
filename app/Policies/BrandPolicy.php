@@ -18,7 +18,7 @@ class BrandPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->is_admin;
     }
 
     /**
@@ -30,7 +30,7 @@ class BrandPolicy
      */
     public function view(User $user, Brand $brand)
     {
-        //
+        return $user->is_admin;
     }
 
     /**
